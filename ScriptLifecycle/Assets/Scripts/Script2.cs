@@ -29,7 +29,7 @@ public class Script2 : MonoBehaviour
     }
     #endregion
 
-
+/*
     #region 3Update
     void FixedUpdate()
     {
@@ -46,7 +46,7 @@ public class Script2 : MonoBehaviour
         Debug.Log("LateUpdate() -- S2 --" + this.name);
     }
 
-    IEnumerable TestCoroutine()
+    IEnumerator TestCoroutine()
     {
         yield return new WaitForSeconds(0.1f);
         Debug.Log("TestCoroutine -- S2 --" + this.name);
@@ -65,7 +65,7 @@ public class Script2 : MonoBehaviour
     }
     
     #endregion
-    
+*/    
 
     void OnDisable()
     {

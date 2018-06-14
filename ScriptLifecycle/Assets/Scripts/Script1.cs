@@ -19,6 +19,8 @@ public class Script1 : MonoBehaviour
     void Start()
     {
         Debug.Log("Start() -- S1 --" + this.name);
+        StartCoroutine("TestCoroutine");
+        StartCoroutine("TestCoroutineCopy");
     }
     #endregion
 
@@ -28,26 +30,8 @@ public class Script1 : MonoBehaviour
     {
         Debug.Log("Reset() -- S1 --" + this.name);
     }
-    #endregion
 
-
-    #region 3Update
-    void FixedUpdate()
-    {
-        Debug.Log("FixedUpdate() -- S1 --" + this.name);
-    }
-
-    void Update()
-    {
-        Debug.Log("Update() -- S1 --" + this.name);
-    }//Update_end  
-
-    void LateUpdate()
-    {
-        Debug.Log("LateUpdate() -- S1 --" + this.name);
-    }
-
-    IEnumerable TestCoroutine()
+    IEnumerator TestCoroutine()
     {
         yield return new WaitForSeconds(0.1f);
         Debug.Log("TestCoroutine -- S1 --" + this.name);
@@ -56,17 +40,47 @@ public class Script1 : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
-    #endregion
 
-
-    #region View
-    void OnGUI()
+    IEnumerator TestCoroutineCopy()
     {
-        Debug.Log("OnGUI() -- S1 --" + this.name);
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("TCCopy -- S1 --" + this.name);
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
     }
-
     #endregion
 
+    /*
+        #region 3Update
+        void FixedUpdate()
+        {
+            Debug.Log("FixedUpdate() -- S1 --" + this.name);
+        }
+
+        void Update()
+        {
+            Debug.Log("Update() -- S1 --" + this.name);
+        }//Update_end  
+
+        void LateUpdate()
+        {
+            Debug.Log("LateUpdate() -- S1 --" + this.name);
+        }
+
+
+        #endregion
+
+
+        #region View
+        void OnGUI()
+        {
+            Debug.Log("OnGUI() -- S1 --" + this.name);
+        }
+
+        #endregion
+    */
 
     void OnDisable()
     {
